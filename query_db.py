@@ -1,18 +1,33 @@
 # query_db.py
 import sys
-import uuid
+import json
+import concurrent.futures
+import datetime
 
-counts = dict((uuid.UUID(key), 0) for key in sys.argv[1:])
 
-with open("db.bin", "rb") as f:
-    try:
-        while True:
-            key = uuid.UUID(bytes=f.read(16))
-            value = uuid.UUID(bytes=f.read(16))
-            if key in counts:
-                counts[key] += 1
-    except:
-        pass
+startTime = datetime.datetime.now()
+
+
+def count_key(key):
+    if key in db_json:
+        return len(db_json[key])
+    else:
+        return 0
+
+
+counts = dict((key, 0) for key in sys.argv[1:])
+
+with open("db.json") as f:
+    db_json = json.load(f)
+
+with concurrent.futures.ThreadPoolExecutor(max_workers=3) as executor:
+    future_count = {executor.submit(count_key, key): key for key in counts}
+    for future in concurrent.futures.as_completed(future_count):
+        key = future_count[future]
+        counts[key] = future.result()
+
 
 for key, count in counts.items():
     print("{}: {}".format(key, count))
+
+print(datetime.datetime.now() - startTime)
