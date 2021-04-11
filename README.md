@@ -17,22 +17,18 @@ The average runtime for the old querying system is 0.911218 seconds.
 The average runtime for my querying system is 0.541688 seconds, nearly half of the original time. This time can be improved upon by using more threads, as only 3 are selected for multithreading on my version of the code.
 The values are provided below for your interest. If you would like to test the runtime on your own computer, I included two bash scripts named executionTimeQueryDatabase (my code) and executionTimeQueryDatabaseNaive (old code). These pass in a set of 850 unique keys as arguments to avoid repeated computation. These keys are found in uniqueKeys.txt.
 
-Naive (old) Query script:
-0.954719
-0.845087
-0.858196
-0.967681
-0.930405
-Avg = 0.911218 seconds
+\nNaive (old) Query script:
+\n0.954719
+\n0.845087
+\n0.858196
+\n0.967681
+\n0.930405
+\nAvg = 0.911218 seconds
 
 My Query script:
-0.441168
-0.479067
-
-_
-0.485473
-0.482108
-0.501714
-0.597695
-0.641452
-Avg = 0.541688 seconds
+\n0.485473
+\n0.482108
+\n0.501714
+\n0.597695
+\n0.641452
+\nAvg = 0.541688 seconds
