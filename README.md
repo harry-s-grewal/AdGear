@@ -3,7 +3,7 @@ Technical Assessment for AdGear 2021
 
 This software is an improvement on the old database creation and querying system.
 
-METHOD:
+## METHOD:
 
 The solution includes two parts: hashtables, and multithreading.
 
@@ -13,7 +13,7 @@ These improvements work twofold. Firstly, hashtables are significantly faster in
 
 As well, to improve performance I added a multithreading component to my Python script. Here we specify the number of threads (in my case 3), then iterate through the jobs to compute an answer. The multithreading is done using ThreadPoolExecutor, and jobs are sent to a multithreading context manager that iterates through the arguments and sends them to different threads. That way, at any given time each thread is finding the number of values of a given key in the database. A user with an idle computer could increase the number of threads higher, and I encourage you to try that and see how your performance improves.
 
-RESULTS:
+## RESULTS:
 
 The average runtime for the old querying system is 0.911218 seconds.
 
@@ -21,7 +21,7 @@ The average runtime for my querying system is 0.541688 seconds, nearly half of t
 
 The values are provided below for your interest. If you would like to test the runtime on your own computer, I included two bash scripts named executionTimeQueryDatabase (my code) and executionTimeQueryDatabaseNaive (old code). These pass in a set of 850 unique keys as arguments to avoid repeated computation. These keys are found in uniqueKeys.txt.
 
-Naive (old) Query script:
+### Naive (old) Query script:
 
 0.954719
 
@@ -33,7 +33,7 @@ Naive (old) Query script:
 
 0.930405
 
-Avg = 0.911218 seconds
+### Avg = 0.911218 seconds
 
 My Query script:
 
