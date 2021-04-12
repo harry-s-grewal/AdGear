@@ -7,7 +7,7 @@ This software is an improvement on the old database creation and querying system
 
 The solution includes two parts: hashtables, and multithreading.
 
-The old method for querying the database involved iterating through the entire database using bytewise computation and comparison. That method is very slow, so instead I introduced Hashtables to speed things up. Firstly, create_db script generates a dictionary with all of the keys and values in the events.json file. However, dictionaries in Python cannot use the same key twice, and therefore if the program detects that there is a duplicate key, it instead appends the value of that key to a list in the value of the dictionary, essentially forming a database index. By doing this, we can a) keep all values associated with all keys and b) remove duplicate keys. As well, hashtables are very fast when searching for an element because they don't require the dictionary to be iterated through entirely.
+The old method for querying the database involved iterating through the entire database using bytewise computation and comparison. That method is very slow, so instead I introduced Hashtables to speed things up. Firstly, the create_db script generates a dictionary with all of the keys and values in the events.json file. However, dictionaries in Python cannot use the same key twice, and therefore if the program detects that there is a duplicate key, it instead appends the value of that key to a list in the value of the dictionary, essentially forming a database index. By doing this, we can a) keep all values associated with all keys and b) remove duplicate keys. As well, hashtables are very fast when searching for an element because they don't require the dictionary to be iterated through entirely.
 
 These improvements work twofold. Firstly, hashtables are significantly faster in searches than iterated searches, which improves efficiency immediately. Secondly, the Hashtable only has one instance of a key, and therefore when a key is found the search is over, and the program can simply calculate the number of values appended to the dictionary's value.
 
@@ -58,4 +58,4 @@ My Query script:
 
 0.641452
 
-Avg = 0.541688 seconds
+### Avg = 0.541688 seconds
