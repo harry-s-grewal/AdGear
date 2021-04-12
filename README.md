@@ -22,7 +22,7 @@ python3 generate_events.py
 python3 create_db.py
 python3 query_db.py arg1 arg2 arg3
 ```
-
+If you would like to easily test the runtime on your own computer, I included two bash scripts named executionTimeQueryDatabase (my code) and executionTimeQueryDatabaseNaive (old code) that print the execution time of the code. These pass in a set of 850 unique keys as arguments to avoid repeated computation. These keys are found in uniqueKeys.txt. NOTE: As these keys are only unique to the db.json generated on my computer, please make sure to run the execution time bash scripts prior to generating a new events.json and db.json file.
 
 ## RESULTS:
 
@@ -30,7 +30,7 @@ The average runtime for the old querying system is 0.911218 seconds.
 
 The average runtime for my querying system is 0.541688 seconds, nearly half of the original time. This time can be improved upon by using more threads, as only 3 are selected for multithreading on my version of the code.
 
-The values are provided below for your interest. If you would like to test the runtime on your own computer, I included two bash scripts named executionTimeQueryDatabase (my code) and executionTimeQueryDatabaseNaive (old code). These pass in a set of 850 unique keys as arguments to avoid repeated computation. These keys are found in uniqueKeys.txt.
+The values are provided below for your interest.
 
 ### Naive (old) Query script:
 
