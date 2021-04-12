@@ -13,6 +13,14 @@ These improvements work twofold. Firstly, hashtables are significantly faster in
 
 As well, to improve performance I added a multithreading component to my Python script. Here we specify the number of threads (in my case 3), then iterate through the jobs to compute an answer. The multithreading is done using ThreadPoolExecutor, and jobs are sent to a multithreading context manager that iterates through the arguments and sends them to different threads. That way, at any given time each thread is finding the number of values of a given key in the database. A user with an idle computer could increase the number of threads higher, and I encourage you to try that and see how your performance improves.
 
+
+```bash
+python3 generate_events.py
+python3 create_db.py
+python3 query_db.py arg1 arg2 arg3
+```
+
+
 ## RESULTS:
 
 The average runtime for the old querying system is 0.911218 seconds.
